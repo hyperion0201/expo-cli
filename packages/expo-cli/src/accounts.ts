@@ -9,11 +9,11 @@ import log from './log';
 UserManager.initialize();
 
 type CommandOptions = {
-  username?: string,
-  password?: string,
+  username?: string;
+  password?: string;
   parent?: {
-    nonInteractive: boolean,
-  }
+    nonInteractive: boolean;
+  };
 };
 
 export async function loginOrRegisterIfLoggedOut(): Promise<User> {
@@ -72,14 +72,10 @@ export async function login(options: CommandOptions): Promise<User> {
         name: 'action',
         message: `You are already logged in as ${chalk.green(
           user.username
-        )}. Log in as new user?`,
+        )}. Expo will keep logged in as ${chalk.green(user.username)}.`,
       };
-
-      const { action } = await prompt(question);
-      if (!action) {
-        // If user chooses to stay logged in, return
-        return user;
-      }
+      console.log(question.message);
+      return user;
     }
     return _usernamePasswordAuth(options.username, options.password);
   } else if (options.username && options.password) {

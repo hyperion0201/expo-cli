@@ -65,7 +65,8 @@ export default class BaseBuilder {
   async commandCheckStatus() {
     try {
       await this.prepareProjectInfo();
-      await this.checkStatus();
+      const buildStatus = await this.checkStatus();
+      return buildStatus;
     } catch (e) {
       if (!(e instanceof BuildError)) {
         throw e;
@@ -137,7 +138,7 @@ export default class BaseBuilder {
       log('No currently active or previous builds for this project.');
       return;
     }
-
+    return buildStatus;
     this.logBuildStatuses(buildStatus);
   }
 

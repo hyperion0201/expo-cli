@@ -9,6 +9,18 @@ import AndroidBuilder from './AndroidBuilder';
 import log from '../../log';
 import CommandError from '../../CommandError';
 
+export function requestAndroidBuild(projectPath, options) {
+  const androidBuilder = new AndroidBuilder(projectPath, options);
+  return androidBuilder.command();
+}
+export function requestIOSBuild(projectPath, options) {
+  const iosBuilder = new IOSBuilder(projectPath, options);
+  return iosBuilder.command();
+}
+export function requestBuildStatus(projectPath, options) {
+  const builder = new BaseBuilder(projectPath, options);
+  return builder.commandCheckStatus();
+}
 export default (program: any) => {
   program
     .command('build:ios [project-dir]')

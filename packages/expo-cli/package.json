@@ -1,7 +1,7 @@
 {
-  "name": "expo-cli",
-  "version": "3.0.9",
-  "description": "The command-line tool for creating and publishing Expo apps",
+  "name": "expo-cli-direct",
+  "version": "1.0.0",
+  "description": "A modified package based on expo-cli, use to call some Expo features directly without using expo-cli.",
   "preferGlobal": true,
   "main": "build/exp.js",
   "files": [
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/expo/expo-cli.git",
+    "url": "https://github.com/hyperion0201/expo-direct.git",
     "directory": "packages/expo-cli"
   },
   "keywords": [
@@ -32,7 +32,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/expo/expo-cli/issues"
+    "url": "https://github.com/hyperion0201/expo-direct/pulls"
   },
   "homepage": "https://github.com/expo/expo-cli/tree/master/packages/expo-cli#readme",
   "engines": {

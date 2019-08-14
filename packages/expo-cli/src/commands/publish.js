@@ -20,6 +20,9 @@ type Options = {
   releaseChannel?: string,
   duringBuild?: boolean,
 };
+export function requestPublish(projectPath, options) {
+  return action(projectPath, options);
+}
 
 export async function action(projectDir: string, options: Options = {}) {
   let channelRe = new RegExp(/^[a-z\d][a-z\d._-]*$/);
