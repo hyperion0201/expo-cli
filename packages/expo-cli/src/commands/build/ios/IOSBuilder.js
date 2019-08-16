@@ -22,7 +22,9 @@ class IOSBuilder extends BaseBuilder {
     if (!this.options.publicUrl) {
       await this.checkStatusBeforeBuild();
     }
-    await this.build(publishedExpIds);
+    const artifactUrl = await this.build(publishedExpIds);
+
+    return artifactUrl;
   }
 
   async validateProject() {
@@ -165,7 +167,11 @@ See https://docs.expo.io/versions/latest/distribution/building-standalone-apps/#
   // validates whether the icon doesn't have transparency
   async validateIcon() {
     try {
-      const icon = get(this.manifest, 'ios.icon', this.manifest.icon);
+      const icon = get(
+        this.manifest,
+        'ios.icon',
+        `${this.projectDir}${this.manifest.icon.slice(1)}`
+      );
       await ensurePNGIsNotTransparent(icon);
     } catch (err) {
       if (err instanceof XDLError) {

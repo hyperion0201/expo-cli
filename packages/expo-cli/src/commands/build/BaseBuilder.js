@@ -51,7 +51,8 @@ export default class BaseBuilder {
   async command() {
     try {
       await this.prepareProjectInfo();
-      await this.run();
+      const builder = await this.run();
+      return builder;
     } catch (e) {
       if (!(e instanceof BuildError)) {
         throw e;
@@ -395,6 +396,7 @@ ${job.id}
         ? UrlUtils.constructArtifactUrl(completedJob.artifactId)
         : completedJob.artifacts.url;
       log(`${chalk.green('Successfully built standalone app:')} ${chalk.underline(artifactUrl)}`);
+      return artifactUrl;
     } else {
       log('Alternatively, run `exp build:status` to monitor it from the command line.');
     }

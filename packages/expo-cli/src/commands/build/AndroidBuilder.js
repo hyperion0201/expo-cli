@@ -40,7 +40,9 @@ export default class AndroidBuilder extends BaseBuilder {
     }
 
     // Initiate a build
-    await this.build(publishedExpIds);
+    const artifactUrl = await this.build(publishedExpIds);
+
+    return artifactUrl;
   }
 
   async validateProject() {
@@ -187,8 +189,11 @@ See https://docs.expo.io/versions/latest/distribution/building-standalone-apps/#
         },
       ];
 
-      const answers = await prompt(questions);
-
+      //const answers = await prompt(questions);
+      // manual set expo auto handle android keystore
+      const answers = {
+        uploadKeystore: false,
+      };
       if (!answers.uploadKeystore) {
         if (this.options.clearCredentials && credentialsExist) {
           await this._clearCredentials();
