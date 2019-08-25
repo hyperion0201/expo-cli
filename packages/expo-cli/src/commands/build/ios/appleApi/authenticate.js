@@ -9,7 +9,7 @@ import prompt from '../../../../prompt';
 const APPLE_IN_HOUSE_TEAM_TYPE = 'in-house';
 
 export default async function authenticate(options) {
-  const { appleId, appleIdPassword } = await _requestAppleIdCreds(options);
+  const { appleId, appleIdPassword } = options;
   try {
     log('Trying to authenticate with Apple Developer Portal...');
     const { teams, fastlaneSession } = await runAction(
