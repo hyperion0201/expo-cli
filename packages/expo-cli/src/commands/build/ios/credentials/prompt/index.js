@@ -61,22 +61,22 @@ async function prompt(appleCtx, options, missingCredentials) {
 }
 
 async function _shouldExpoGenerateCerts() {
-  const { expoShouldGenerateCerts } = await _prompt({
-    type: 'list',
-    name: 'expoShouldGenerateCerts',
-    message: 'How would you like to upload your credentials?',
-    choices: [
-      {
-        name: 'Expo handles all credentials, you can still provide overrides',
-        value: true,
-      },
-      {
-        name: 'I will provide all the credentials and files needed, Expo does limited validation',
-        value: false,
-      },
-    ],
-  });
-  return expoShouldGenerateCerts;
+  // const { expoShouldGenerateCerts } = await _prompt({
+  //   type: 'list',
+  //   name: 'expoShouldGenerateCerts',
+  //   message: 'How would you like to upload your credentials?',
+  //   choices: [
+  //     {
+  //       name: 'Expo handles all credentials, you can still provide overrides',
+  //       value: true,
+  //     },
+  //     {
+  //       name: 'I will provide all the credentials and files needed, Expo does limited validation',
+  //       value: false,
+  //     },
+  //   ],
+  // });
+  return true;
 }
 
 const _flattenObject = obj => {

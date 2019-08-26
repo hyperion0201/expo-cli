@@ -49,16 +49,16 @@ async function promptForOverrides(appleCtx, types) {
 }
 
 async function _willUserProvideCredentialsType(name) {
-  const { answer } = await prompt({
-    type: 'list',
-    name: 'answer',
-    message: `Will you provide your own ${name}?`,
-    choices: [
-      { name: 'Let Expo handle the process', value: false },
-      { name: 'I want to upload my own file', value: true },
-    ],
-  });
-  return answer;
+  // const { answer } = await prompt({
+  //   type: 'list',
+  //   name: 'answer',
+  //   message: `Will you provide your own ${name}?`,
+  //   choices: [
+  //     { name: 'Let Expo handle the process', value: false },
+  //     { name: 'I want to upload my own file', value: true },
+  //   ],
+  // });
+  return false;
 }
 
 async function _askIfWantsToReuse(appleCtx, definition) {

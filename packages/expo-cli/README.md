@@ -61,6 +61,8 @@ const options = {
   releaseChannel: "default",
   clearCredentials: false,
   type: "simulator"
+  appleId: "demo@gmail.com",
+  appleIdPassword: "demo123"
 };
 
 ```
@@ -82,6 +84,11 @@ See [here](https://developer.android.com/studio/publish/app-signing) to find mor
 #### `type` (string, required, default: `simulator` for Android, `archive` for iOS)
 `type` dedicate what type of building that Expo should do. There are two build types: `simulator` or `archive`. Request a build with `simulator` mean Expo will perform a build that return a `.apk` file for Android build or `.tar.gz` file for iOS. `archive` let Expo know it's the time to build a `.ipa` file. You will need to your Apple ID account, and passed the two-factor verification to perform this request.
 
+#### `appleId` (string, required, default: undefined)
+`appleId` is your Apple ID. Make sure your account is a developer account.
+
+#### `appleIdPassword (string, required, default: undefined)
+`appleIdPassword` is your Apple password.
 
 ### More API and features coming soon. 
 
