@@ -1,6 +1,6 @@
 {
   "name": "expo-cli-direct",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A modified package based on expo-cli, use to call some Expo features directly without using expo-cli.",
   "preferGlobal": true,
   "main": "build/exp.js",
