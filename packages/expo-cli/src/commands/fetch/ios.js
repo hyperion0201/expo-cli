@@ -6,7 +6,7 @@ import { Credentials, Exp } from '@expo/xdl';
 
 import log from '../../log';
 
-async function fetchIosCerts(projectDir) {
+export async function fetchIosCerts(projectDir, options) {
   const {
     args: {
       username,
@@ -74,6 +74,16 @@ async function fetchIosCerts(projectDir) {
       await fs.writeFile(provisioningProfilePath, Buffer.from(provisioningProfile, 'base64'));
       log('Wrote provisioning profile to disk');
     }
+    // save distribution p12 password
+    const distP12PassPath = inProjectDir(`${remotePackageName}_distP12Pass.txt`);
+    await fs.writeFile(distP12PassPath, certPassword);
+    // save push key id
+    const pushIDPath = inProjectDir(`${remotePackageName}_pushID.txt`);
+    await fs.writeFile(pushIDPath, apnsKeyId);
+    //save push p12 password
+    const pushP12PassPath = inProjectDir(`${remotePackageName}_pushP12Pass.txt`);
+    await fs.writeFile(pushP12PassPath, apnsKeyId);
+    log(`Save important values to disk.`);
     log(`Save these important values as well:
 
 Distribution P12 password: ${
