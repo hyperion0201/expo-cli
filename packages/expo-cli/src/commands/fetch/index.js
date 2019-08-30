@@ -5,6 +5,18 @@ import {
 } from './android';
 import fetchIosCerts from './ios';
 
+export function requestIOSCerts(projectDir, options) {
+  return fetchIosCerts(projectDir, options);
+}
+export function requestAndroidKeystore(projectDir) {
+  return fetchAndroidKeystoreAsync(projectDir);
+}
+export function requestAndroidHashes(projectDir) {
+  return fetchAndroidHashesAsync(projectDir);
+}
+export function requestAndroidUploadCert(projectDir) {
+  return fetchAndroidUploadCertAsync(projectDir);
+}
 export default program => {
   program
     .command('fetch:ios:certs [project-dir]')

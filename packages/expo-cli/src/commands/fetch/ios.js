@@ -6,7 +6,7 @@ import { Credentials, Exp } from '@expo/xdl';
 
 import log from '../../log';
 
-export async function fetchIosCerts(projectDir, options) {
+async function fetchIosCerts(projectDir, options) {
   const {
     args: {
       username,
@@ -82,7 +82,7 @@ export async function fetchIosCerts(projectDir, options) {
     await fs.writeFile(pushIDPath, apnsKeyId);
     //save push p12 password
     const pushP12PassPath = inProjectDir(`${remotePackageName}_pushP12Pass.txt`);
-    await fs.writeFile(pushP12PassPath, apnsKeyId);
+    await fs.writeFile(pushP12PassPath, pushPassword);
     log(`Save important values to disk.`);
     log(`Save these important values as well:
 

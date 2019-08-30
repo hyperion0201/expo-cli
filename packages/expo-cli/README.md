@@ -21,7 +21,9 @@ Then, import to your project:
 ```js
 const expoAccount = require("expo-cli-direct/build/accounts");
 const expoPublish = require("expo-cli-direct/build/commands/publish");
-const expoBuilder = require("expo-cli-direct/build/commands/build/index");
+const expoBuilder = require("expo-cli-direct/build/commands/build/index")
+const expoFetcher = require("expo-cli-direct/build/commands/fetch/index')
+;
 ```
 ## API
 
@@ -62,7 +64,12 @@ const options = {
   clearCredentials: false,
   type: "simulator"
   appleId: "demo@gmail.com",
-  appleIdPassword: "demo123"
+  appleIdPassword: "demo123",
+  distP12Path: "/home/demo.p12",
+  pushP8Path: "/home/demo_apns_key.p8",
+  pushId: "AbE9Vx",
+  provisioningProfilePath: "/home/demo.mobileprovision",
+  p12password: "99Ab3DOvDL=="
 };
 
 ```
@@ -89,6 +96,8 @@ See [here](https://developer.android.com/studio/publish/app-signing) to find mor
 
 #### `appleIdPassword (string, required, default: undefined)
 `appleIdPassword` is your Apple password.
+
+#### distP12Path (string, optional, default: undefined)
 
 ### More API and features coming soon. 
 
