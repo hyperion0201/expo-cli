@@ -5,7 +5,7 @@ import pickBy from 'lodash/pickBy';
 import fs from 'fs-extra';
 
 async function getFromParams(options) {
-  const distPassword = process.env.EXPO_IOS_DIST_P12_PASSWORD;
+  const distPassword = options.p12password;
   const { distP12Path, pushP8Path, pushId, provisioningProfilePath } = options;
 
   if (_isOnlyOneSet(distP12Path, distPassword)) {
